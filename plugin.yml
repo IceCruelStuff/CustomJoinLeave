@@ -1,0 +1,10 @@
+name: CustomJoinLeave
+description: Custom join/leave messages and events for your server.
+main: Dapro718\CustomJoinLeave\Main
+version: 0.0.1
+api: 3.11.6
+author: Dapro718
+permissions:
+ message.disable:
+  default: false
+  description: Do not send a message when the player / group joins the server.
