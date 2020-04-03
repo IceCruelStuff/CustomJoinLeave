@@ -1,0 +1,17 @@
+# Edit your join and leave messages. Use § for colors, and {player} for the player's name.
+
+Join: '{player} has joined the game'
+Leave: '{player} has left the game'
+
+
+# Whether to show the join UI.
+show-join-ui: true
+
+# Edit the UI title, use § for colors.
+ui-title: 'JoinUI'
+
+# Edit the UI description, use § for colors.
+ui-description: 'Edit the description in config.'
+
+# Edit the UI button text, use § for colors.
+ui-button-text: '§aPlay'
