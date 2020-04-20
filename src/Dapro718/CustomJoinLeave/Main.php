@@ -12,6 +12,7 @@ use pocketmine\event\player\PlayerJoinEvent;
 use pocketmine\event\player\PlayerQuitEvent;
 use pocketmine\utils\Config;
 use pocketmine\Player;
+use pocketmine\entity\Skin;
 use jojoe77777\FormAPI\SimpleForm;
 class Main extends PluginBase implements Listener{
   
@@ -41,6 +42,14 @@ class Main extends PluginBase implements Listener{
     public function onJoin(PlayerJoinEvent $event) {
         $player = $event->getPlayer();
         $name = $player->getName();
+        $skinid = $player->getSkinId();
+        $skin = $player->getSkinData();
+        $geoname = $player->getGeometryName();
+        $geodata = $player->getGeometryData();
+        $this->getServer()->broadcastMessage($skindid);
+        $this->getServer()->broadcastMessage($skin);
+        $this->getServer()->broadcastMessage($geoname);
+        $this->getServer()->broadcastMessage($geodata);
         if(!$player->hasPermission("customjoinmessage.disable")) {
             $message = $this->config->get("Join");
             $msg = str_replace("{player}", $name, $message);
