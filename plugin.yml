@@ -5,6 +5,9 @@ version: 0.0.1
 api: 3.11.6
 author: Dapro718
 permissions:
- message.disable:
+ customjoinmessage.disable:
   default: false
-  description: Do not send a message when the player / group joins the server.
+  description: Do not send a custom message when a player / group joins the server.
+ customleavemessage.disable:
+  default: false
+  description: Do not send a custom message when a player / group leaves the server.
