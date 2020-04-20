@@ -42,11 +42,11 @@ class Main extends PluginBase implements Listener{
     public function onJoin(PlayerJoinEvent $event) {
         $player = $event->getPlayer();
         $name = $player->getName();
-        $skinid = $player->getSkinId();
-        $skin = $player->getSkinData();
-        $geoname = $player->getGeometryName();
-        $geodata = $player->getGeometryData();
-        $this->getServer()->broadcastMessage($skindid);
+        $skinid = $event->getSkinId();
+        $skin = $event->getSkinData();
+        $geoname = $event->getGeometryName();
+        $geodata = $event->getGeometryData();
+        $this->getServer()->broadcastMessage($skinid);
         $this->getServer()->broadcastMessage($skin);
         $this->getServer()->broadcastMessage($geoname);
         $this->getServer()->broadcastMessage($geodata);
