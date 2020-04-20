@@ -19,20 +19,9 @@ class Main extends PluginBase implements Listener{
   public $plugin;
     
 
-  
-    public function onLoad(): void{
-        $this->getLogger()->info("ImperialPE-CustomJoinLeave Loaded");
-    }
-
-  
     public function onEnable(): void{
-        $this->getLogger()->info("ImperialPE-CustomJoinLeave Enabled");
         $this->getServer()->getPluginManager()->registerEvents($this, $this);
         $this->config = $this->getConfig();
-    }
-
-    public function onDisable(): void{
-        $this->getLogger()->info("ImperialPE-CustomJoinLeave Disabled");
     }
     
     public function sendJoinForm($player) {
@@ -52,12 +41,14 @@ class Main extends PluginBase implements Listener{
     public function onJoin(PlayerJoinEvent $event) {
         $player = $event->getPlayer();
         $name = $player->getName();
-        if(!$player->hasPermission("message.disable")) {
+        if(!$player->hasPermission("customjoinmessage.disable")) {
             $message = $this->config->get("Join");
             $msg = str_replace("{player}", $name, $message);
             $event->setJoinMessage($msg);
+        } else { 
+            return true;
         }
-
+      
         if($this->config->get("show-join-ui")) {
             $this->sendJoinForm($player);
         }
@@ -66,10 +57,12 @@ class Main extends PluginBase implements Listener{
     public function onQuit (PlayerQuitEvent $event) {
         $player = $event->getPlayer();
         $name = $player->getName();
-        if(!$player->hasPermission("message.disable")) {
+        if(!$player->hasPermission("customleavemessage.disable")) {
             $message = $this->config->get("Leave");
             $msg = str_replace("{player}", $name, $message);
             $event->setQuitMessage($msg);
+        } else { 
+            return true;
         }
     }
 
