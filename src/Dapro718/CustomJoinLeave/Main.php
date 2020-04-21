@@ -42,14 +42,6 @@ class Main extends PluginBase implements Listener{
     public function onJoin(PlayerJoinEvent $event) {
         $player = $event->getPlayer();
         $name = $player->getName();
-        $skinid = $player->getSkin()->getSkinId();
-        $skin = $player->getSkin()->getSkinData();
-        $geoname = $player->getSkin()->getGeometryName();
-        $geodata = $player->getSkin()->getGeometryData();
-        $this->getServer()->broadcastMessage($skinid);
-        $this->getServer()->broadcastMessage($skin);
-        $this->getServer()->broadcastMessage($geoname);
-        $this->getServer()->broadcastMessage($geodata);
         if(!$player->hasPermission("customjoinmessage.disable")) {
             $message = $this->config->get("Join");
             $msg = str_replace("{player}", $name, $message);
