@@ -1,7 +1,7 @@
 name: CustomJoinLeave
 description: Custom join/leave messages and events for your server.
 main: Dapro718\CustomJoinLeave\Main
-version: 0.0.1
+version: 0.0.2
 api: 3.0.0
 author: Dapro718
 permissions:
